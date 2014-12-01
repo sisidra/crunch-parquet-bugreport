@@ -43,12 +43,16 @@ public class ParquetTest {
       List<GenericData.Record> actualRecords = Lists.newArrayList();
       GenericData.Record record;
       while ((record = reader.read()) != null) {
+        System.out.println("Record: " + record);
         actualRecords.add(record);
       }
+      // Record: {"fieldA": "A2222", "fieldB": "B2222", "fieldC": 1111}
+      // Record: {"fieldA": "A2222", "fieldB": "B2222", "fieldC": 2222}
+
 
       System.out.println("Expected: [{\"fieldA\": \"A1111\", \"fieldB\": \"B1111\", \"fieldC\": 1111}, {\"fieldA\": \"A2222\", \"fieldB\": \"B2222\", \"fieldC\": 2222}]");
       System.out.println("Actual:   " + actualRecords);
-      // is: Actual:   [{"fieldA": "A2222", "fieldB": "B2222", "fieldC": 1111}, {"fieldA": "A2222", "fieldB": "B2222", "fieldC": 2222}]
+      // Actual:   [{"fieldA": "A2222", "fieldB": "B2222", "fieldC": 1111}, {"fieldA": "A2222", "fieldB": "B2222", "fieldC": 2222}]
     }
   }
 
